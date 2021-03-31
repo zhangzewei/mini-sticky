@@ -1,0 +1,26 @@
+{
+  "name": "mini-sticky",
+  "version": "1.0.0",
+  "description": "sticky plugin with mini size",
+  "main": "index.js",
+  "scripts": {
+    "build": "./node_modules/.bin/babel src --out-dir lib",
+    "start": "http-server ./src --port 8000"
+  },
+  "keywords": [
+    "sticky",
+    "mini-sticky"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.13.14",
+    "@babel/core": "^7.13.14",
+    "@babel/plugin-transform-arrow-functions": "^7.13.0",
+    "@babel/preset-env": "^7.13.12",
+    "http-server": "^0.12.3"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.12.1"
+  }
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo</title>
+  <style>
+    body {
+      height: 3000px;
+    }
+    #target {
+      height: 50px;
+      background: green;
+    }
+    #sticky-demo {
+      height: 300px;
+      width: 400px;
+      background: red;
+    }
+    #sticky-demo2 {
+      height: 100px;
+      width: 400px;
+      background: pink;
+    }
+    .blue {
+      height: 50px;
+      width: 400px;
+      background: blue;
+      margin-top: 100px;
+    }
+    .yellow {
+      height: 50px;
+      width: 400px;
+      background: yellow;
+    }
+  </style>
+</head>
+<body>
+  <div id="target">
+    target
+  </div>
+  <div id="sticky-demo">
+    sticky
+  </div>
+  <div class="yellow">
+    yellow
+  </div>
+  <div class="blue" id='target2'>
+    blue
+  </div>
+  <div id="sticky-demo2">
+    sticky2
+  </div>
+  <script type="module">
+    const demo1 = document.getElementById('sticky-demo');
+    const demo2 = document.getElementById('sticky-demo2');
+    const target = document.getElementById('target');
+    const target2 = document.getElementById('target2');
+    import { miniSticky } from './index.js';
+    miniSticky(demo1, target);
+    miniSticky(demo2, target2);
+  </script>
+</body>
+</html>
