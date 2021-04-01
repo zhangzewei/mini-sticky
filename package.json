@@ -2,7 +2,7 @@
   "name": "mini-sticky",
   "version": "1.0.0",
   "description": "sticky plugin with mini size",
-  "main": "index.js",
+  "main": "./lib/index.js",
   "scripts": {
     "build": "./node_modules/.bin/babel src --out-dir lib",
     "start": "http-server ./src --port 8000"
