@@ -24,7 +24,6 @@ const miniSticky = (sticyElement, stickyAreaElement, offset = 0) => {
   const sticyElementHeight = sticyElement.getBoundingClientRect().height;
   window.addEventListener('scroll', debounce(() => {
     const { top, height } = stickyAreaElement.getBoundingClientRect();
-    console.log(1)
     const isInWindow = isInWindowScreen(stickyAreaElement);
     if (isInWindow) {
       sticyElement.style.transform = `translateY(${(-top > height) ? (height - sticyElementHeight) : -top + 20}px)`;
