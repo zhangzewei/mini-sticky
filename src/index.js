@@ -26,7 +26,7 @@ const miniSticky = (sticyElement, stickyAreaElement, offset = 0) => {
     const { top, height } = stickyAreaElement.getBoundingClientRect();
     const isInWindow = isInWindowScreen(stickyAreaElement);
     if (isInWindow) {
-      sticyElement.style.transform = `translateY(${(-top > height) ? (height - sticyElementHeight) : -top + 20}px)`;
+      sticyElement.style.transform = `translateY(${(-top > height) ? (height - sticyElementHeight + offset) : -top + offset + 20}px)`;
     } else {
       sticyElement.style.transform = 'translateY(0px)';
     }
