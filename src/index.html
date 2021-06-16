@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,59 +8,45 @@
   <title>Demo</title>
   <style>
     body {
-      height: 3000px;
+      font-size: 24px;
     }
-    #target {
-      height: 50px;
+
+    .banner {
+      text-align: center;
+      height: 300px;
+      background-color: cyan;
+    }
+
+    .main {
+      height: 3000px;
+      text-align: center;
       background: green;
     }
-    #sticky-demo {
+
+    .nav {
+      width: 150px;
       height: 300px;
-      width: 400px;
-      background: red;
-    }
-    #sticky-demo2 {
-      height: 100px;
-      width: 400px;
-      background: pink;
-    }
-    .blue {
-      height: 50px;
-      width: 400px;
-      background: blue;
-      margin-top: 100px;
-    }
-    .yellow {
-      height: 50px;
-      width: 400px;
-      background: yellow;
+      background-color: orangered;
+      transition: transform 0.1s ease-in-out;
     }
   </style>
 </head>
+
 <body>
-  <div id="target">
-    target
+  <div class="banner">
+    banner
   </div>
-  <div id="sticky-demo">
-    sticky
-  </div>
-  <div class="yellow">
-    yellow
-  </div>
-  <div class="blue" id='target2'>
-    blue
-  </div>
-  <div id="sticky-demo2">
-    sticky2
+  <div class="main">
+    <nav class="nav">
+      navigation
+    </nav>
   </div>
   <script type="module">
-    const demo1 = document.getElementById('sticky-demo');
-    const demo2 = document.getElementById('sticky-demo2');
-    const target = document.getElementById('target');
-    const target2 = document.getElementById('target2');
     import { miniSticky } from './index.js';
-    miniSticky(demo1, target);
-    miniSticky(demo2, target2);
+    const stickyElement = document.querySelector('.nav');
+    const stickyAreaElement = document.querySelector('.main');
+    miniSticky(stickyElement, stickyAreaElement);
   </script>
 </body>
+
 </html>

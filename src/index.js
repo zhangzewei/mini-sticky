@@ -4,33 +4,34 @@ const isInWindowScreen = (ele, offset = 0) => {
   if (!ele) return false;
   const windowHeight = window.innerHeight;
   const { top, height } = ele.getBoundingClientRect();
-  return top >= (offset - height) && top < (windowHeight - offset - height);
+  return top <= offset && top > - windowHeight - height + offset;
 };
 
-const miniSticky = (ele, target, offset = 0) => {
-  if (!ele) {
-    return console.error('please set a element to sticky');
-  }
-  const { height } = ele.getBoundingClientRect();
-  const placeholder = document.createElement('div');
-  placeholder.style.height = `${height}px`;
-  placeholder.style.width = '1px';
-  window.addEventListener('scroll', () => {
-    const isInWindow = isInWindowScreen(target);
-    if (isInWindow) {
-      setTimeout(() => {
-        ele.style.position = 'relative';
-        ele.style.top = null;
-        placeholder.remove();
-      }, 100)
-    } else {
-      setTimeout(() => {
-        ele.style.position = 'fixed';
-        ele.style.top = `${offset}px`;
-        target.insertAdjacentElement('afterend', placeholder);
-      }, 100);
+function debounce(fn, wait) {
+  let timer = null;
+  return function () {
+    if (timer !== null) {
+      clearTimeout(timer);
     }
-  });
+    timer = setTimeout(fn, wait);
+  }
 }
 
-export {miniSticky, isInWindowScreen};
+const miniSticky = (sticyElement, stickyAreaElement, offset = 0) => {
+  if (!sticyElement) {
+    return console.error('please set a element to sticky');
+  }
+  const sticyElementHeight = sticyElement.getBoundingClientRect().height;
+  window.addEventListener('scroll', debounce(() => {
+    const { top, height } = stickyAreaElement.getBoundingClientRect();
+    console.log(1)
+    const isInWindow = isInWindowScreen(stickyAreaElement);
+    if (isInWindow) {
+      sticyElement.style.transform = `translateY(${(-top > height) ? (height - sticyElementHeight) : -top + 20}px)`;
+    } else {
+      sticyElement.style.transform = 'translateY(0px)';
+    }
+  }, 24));
+}
+
+export { miniSticky, isInWindowScreen };
