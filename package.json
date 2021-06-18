@@ -11,8 +11,12 @@
     "sticky",
     "mini-sticky"
   ],
-  "author": "",
+  "author": "markzzw",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zhangzewei/mini-sticky"
+  },
   "devDependencies": {
     "@babel/cli": "^7.13.14",
     "@babel/core": "^7.13.14",
