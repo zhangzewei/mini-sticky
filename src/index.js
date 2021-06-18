@@ -17,7 +17,7 @@ function debounce(fn, wait) {
   }
 }
 
-const miniSticky = (sticyElement, stickyAreaElement, offset = 0) => {
+const tinySticky = (sticyElement, stickyAreaElement, offset = 0) => {
   if (!sticyElement) {
     return console.error('please set a element to sticky');
   }
@@ -33,4 +33,4 @@ const miniSticky = (sticyElement, stickyAreaElement, offset = 0) => {
   }, 24));
 }
 
-export { miniSticky, isInWindowScreen };
+export { tinySticky, isInWindowScreen };

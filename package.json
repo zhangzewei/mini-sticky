@@ -1,5 +1,5 @@
 {
-  "name": "mini-sticky",
+  "name": "tiny-sticky",
   "version": "1.0.0",
   "description": "sticky plugin with mini size",
   "main": "./lib/index.js",
@@ -9,7 +9,7 @@
   },
   "keywords": [
     "sticky",
-    "mini-sticky"
+    "tiny-sticky"
   ],
   "author": "markzzw",
   "license": "ISC",

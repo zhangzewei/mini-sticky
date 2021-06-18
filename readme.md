@@ -26,8 +26,8 @@ And compiled with babel, so it can be used on at most 99% browsers.
 3. also you can re-compile the source code.
 
 ```js
-import { miniSticky } from 'mini-sticky';
-miniSticky(
+import { tinySticky } from 'tiny-sticky';
+tinySticky(
   sticyElement: HtmlElement,
   stickyAreaElement: HtmlElement,
   offset: number
