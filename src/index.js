@@ -7,22 +7,12 @@ const isInWindowScreen = (ele, offset = 0) => {
   return top <= offset && top > - windowHeight - height + offset;
 };
 
-function debounce(fn, wait) {
-  let timer = null;
-  return function () {
-    if (timer !== null) {
-      clearTimeout(timer);
-    }
-    timer = setTimeout(fn, wait);
-  }
-}
-
 const tinySticky = (sticyElement, stickyAreaElement, offset = 0) => {
   if (!sticyElement) {
     return console.error('please set a element to sticky');
   }
   const sticyElementHeight = sticyElement.getBoundingClientRect().height;
-  window.addEventListener('scroll', debounce(() => {
+  window.addEventListener('scroll', () => window.requestAnimationFrame(() => {
     const { top, height } = stickyAreaElement.getBoundingClientRect();
     const isInWindow = isInWindowScreen(stickyAreaElement);
     if (isInWindow) {
@@ -30,7 +20,7 @@ const tinySticky = (sticyElement, stickyAreaElement, offset = 0) => {
     } else {
       sticyElement.style.transform = 'translateY(0px)';
     }
-  }, 24));
+  }));
 }
 
 export { tinySticky, isInWindowScreen };

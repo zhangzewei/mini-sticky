@@ -27,7 +27,7 @@
       width: 150px;
       height: 300px;
       background-color: orangered;
-      transition: transform 0.1s ease-in-out;
+      /* transition: transform 0.1s ease-in-out; */
     }
 
     .footer {
@@ -50,10 +50,10 @@
     footer
   </div>
   <script type="module">
-    import { miniSticky } from './index.js';
+    import { tinySticky } from './index.js';
     const stickyElement = document.querySelector('.nav');
     const stickyAreaElement = document.querySelector('.main');
-    miniSticky(stickyElement, stickyAreaElement);
+    tinySticky(stickyElement, stickyAreaElement);
   </script>
 </body>
 
