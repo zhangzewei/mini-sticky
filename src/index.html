@@ -21,6 +21,8 @@
       height: 3000px;
       text-align: center;
       background: green;
+      display: flex;
+      justify-content: space-between;
     }
 
     .nav {
@@ -42,18 +44,24 @@
     banner
   </div>
   <div class="main">
-    <nav class="nav">
-      navigation
+    <nav class="nav left">
+      sticky itself
+    </nav>
+    <nav class="nav right">
+      sticky in area
     </nav>
   </div>
   <div class="footer">
     footer
   </div>
   <script type="module">
-    import { tinySticky } from './index.js';
-    const stickyElement = document.querySelector('.nav');
+    import { stickyInArea, singleSticky } from './index.js';
+    const stickySelfEle = document.querySelector('.nav.left');
+    const stickyInAreaEle = document.querySelector('.nav.right');
     const stickyAreaElement = document.querySelector('.main');
-    tinySticky(stickyElement, stickyAreaElement);
+    console.log(stickySelfEle, stickyInAreaEle)
+    singleSticky(stickySelfEle);
+    stickyInArea(stickyInAreaEle, stickyAreaElement);
   </script>
 </body>
 

@@ -7,20 +7,46 @@ const isInWindowScreen = (ele, offset = 0) => {
   return top <= offset && top > - windowHeight - height + offset;
 };
 
-const tinySticky = (sticyElement, stickyAreaElement, offset = 0) => {
-  if (!sticyElement) {
+const stickyInArea = (
+  stickyElement,
+  stickyAreaElement,
+  offset = 0,
+  scrollEle = window
+) => {
+  if (!stickyElement) {
     return console.error('please set a element to sticky');
   }
-  const sticyElementHeight = sticyElement.getBoundingClientRect().height;
-  window.addEventListener('scroll', () => window.requestAnimationFrame(() => {
+  const stickyElementHeight = stickyElement.getBoundingClientRect().height;
+  scrollEle.addEventListener('scroll', () => window.requestAnimationFrame(function () {
     const { top, height } = stickyAreaElement.getBoundingClientRect();
     const isInWindow = isInWindowScreen(stickyAreaElement);
+    const totalHeight = height - stickyElementHeight;
     if (isInWindow) {
-      sticyElement.style.transform = `translateY(${(-top > height) ? (height - sticyElementHeight + offset) : -top + offset + 20}px)`;
+      stickyElement.style.transform = `translateY(${(-top >= totalHeight) ? totalHeight + offset : -top + offset}px)`;
     } else {
-      sticyElement.style.transform = 'translateY(0px)';
+      stickyElement.style.transform = 'translateY(0px)';
     }
   }));
 }
 
-export { tinySticky, isInWindowScreen };
+const singleSticky = (
+  stickyElement,
+  scrollElement,
+  offset = 0
+) => {
+  if (!stickyElement) {
+    return console.error('please set a element to sticky');
+  }
+  const _scrollElement = scrollElement || window;
+  _scrollElement.addEventListener('scroll', () => window.requestAnimationFrame(function () {
+    const scrollTop = scrollElement ? _scrollElement.scrollTop : _scrollElement.scrollY;
+    const isScrollOutScreen = stickyElement.getBoundingClientRect().top < 0;
+    if (isScrollOutScreen) {
+      stickyElement.style.transform = `translateY(${scrollTop - stickyElement.offsetTop + offset}px)`;
+    } else {
+      stickyElement.style.transform = 'translateY(0px)';
+    }
+  }));
+}
+
+export { stickyInArea, singleSticky };

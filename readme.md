@@ -1,5 +1,5 @@
 ## Tiny sticky
-only tow functions, code in `src/index.js`
+implace the sticky without css sticky, can use to set single element to sticky, also can set one element to sticky in some area element.
 
 ## Run demo
 1. Install dependencies
@@ -21,15 +21,27 @@ use `getBoundingClientRect` to check element is at the screen window, and [can I
 And compiled with babel, so it can be used on at most 99% browsers.
 
 ## Useage
-1. copy the file into your project.
-2. invoke the function.
-3. also you can re-compile the source code.
-
 ```js
-import { tinySticky } from 'tiny-sticky';
-tinySticky(
-  sticyElement: HtmlElement,
+import { stickyInArea, singleSticky } from './index.js';
+const stickySelfEle = document.querySelector('.nav');
+const stickyInAreaEle = document.querySelector('.nav.right');
+const stickyAreaElement = document.querySelector('.main');
+singleSticky(stickySelfEle);
+stickyInArea(stickyInAreaEle, stickyAreaElement);
+```
+
+## Params
+```ts
+singleSticky(
+  stickyElement: HtmlElement,
+  scrollElement: HtmlElement | window,
+  offset: number | 0
+);
+
+stickyInArea(
+  stickyElement: HtmlElement,
   stickyAreaElement: HtmlElement,
-  offset: number
+  scrollEle: HtmlElement | window,
+  offset: number | 0
 );
 ```
