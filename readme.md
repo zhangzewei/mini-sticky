@@ -20,9 +20,9 @@ use `getBoundingClientRect` to check element is at the screen window, and [can I
 
 And compiled with babel, so it can be used on at most 99% browsers.
 
-## Useage
+## Usages
 ```js
-import { stickyInArea, singleSticky } from './index.js';
+import { stickyInArea, singleSticky } from 'tiny-sticky';
 const stickySelfEle = document.querySelector('.nav');
 const stickyInAreaEle = document.querySelector('.nav.right');
 const stickyAreaElement = document.querySelector('.main');
