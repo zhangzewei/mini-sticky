@@ -41,8 +41,9 @@ const singleSticky = (
   _scrollElement.addEventListener('scroll', () => window.requestAnimationFrame(function () {
     const scrollTop = scrollElement ? _scrollElement.scrollTop : _scrollElement.scrollY;
     const isScrollOutScreen = stickyElement.getBoundingClientRect().top < 0;
-    if (isScrollOutScreen) {
-      stickyElement.style.transform = `translateY(${scrollTop - stickyElement.offsetTop + offset}px)`;
+    const _offset = scrollTop - stickyElement.offsetTop + offset;
+    if (isScrollOutScreen || _offset > 0) {
+      stickyElement.style.transform = `translateY(${_offset}px)`;
     } else {
       stickyElement.style.transform = 'translateY(0px)';
     }

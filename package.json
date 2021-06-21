@@ -1,6 +1,6 @@
 {
   "name": "tiny-sticky",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "sticky plugin with mini size",
   "main": "./lib/index.js",
   "scripts": {
